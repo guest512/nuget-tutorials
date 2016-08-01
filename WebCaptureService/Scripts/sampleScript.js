@@ -1,5 +1,5 @@
 ﻿// Initialize Web Scanning and Web Viewing
-$(function() {
+$(function () {
     try {
         // Initialize Web Document Viewer
         var viewer = new Atalasoft.Controls.WebDocumentViewer({
@@ -12,26 +12,30 @@ $(function() {
         // Initialize Web Scanning
         Atalasoft.Controls.Capture.WebScanning.initialize({
             handlerUrl: 'WebCaptureHandler.ashx',
-            onScanClientReady: function(eventName, eventObj) {
+            onScanClientReady: function (eventName, eventObj) {
                 console.log("Scan Client Ready");
+                //Set encryption key for scan/import results located in persistent store in the UserProfile folder
                 Atalasoft.Controls.Capture.WebScanning.LocalFile.setEncryptionKey("foobar");
             },
-            onScanStarted: function(eventName, eventObj) { console.log('Scan Started'); },
-            onScanCompleted: function(eventName, eventObj) { console.log('Scan Completed: ' + eventObj.success); },
-            onImportCompleted: function(eventName, eventObj) { console.log('Import Completed: ' + eventObj.success); },
-            onImageAcquired: function(eventName, eventObj) {
+            onScanStarted: function (eventName, eventObj) { console.log('Scan Started'); },
+            onScanCompleted: function (eventName, eventObj) { console.log('Scan Completed: ' + eventObj.success); },
+            onImportCompleted: function (eventName, eventObj) { console.log('Import Completed: ' + eventObj.success); },
+            onImageAcquired: function (eventName, eventObj) {
                 console.log("Image Acquired");
+                // Remove image as temporary result
                 eventObj.discard = true;
+                // Use LocalFile API for upload scan result to server with specified settings
                 Atalasoft.Controls.Capture.WebScanning.LocalFile.asBase64String(eventObj.localFile,
-                    "jpeg",
+                    "tiff",
                     {
-                        jpegCompression:5,
+                        jpegCompression: true,
+                        quality: 5
                     },
-                    function(data) { Atalasoft.Controls.Capture.UploadToCaptureServer.uploadToServer(data); });
+                    function (data) { Atalasoft.Controls.Capture.UploadToCaptureServer.uploadToServer(data); });
             },
-            onUploadError: function(msg, params) { console.log(msg); },
-            onUploadStarted: function(eventName, eventObj) { console.log('Upload Started'); },
-            onUploadCompleted: function(eventName, eventObj) {
+            onUploadError: function (msg, params) { console.log(msg); },
+            onUploadStarted: function (eventName, eventObj) { console.log('Upload Started'); },
+            onUploadCompleted: function (eventName, eventObj) {
                 console.log('Upload Completed: ' + eventObj.success);
                 if (eventObj.success) {
                     console.log("atala-capture-upload/" + eventObj.documentFilename);
@@ -40,8 +44,8 @@ $(function() {
                 }
             },
 
-            scanningOptions: { pixelType: 2, resultPixelType:2, deliverables: { localFile: { format: "tif" } } }
-
+            // Default scanning options used for Import operation.
+            scanningOptions: { resultPixelType: 2, deliverables: { localFile: { format: "tiff" } } }
         });
     } catch (error) {
         console.log("Thrown error: " + error.description);
