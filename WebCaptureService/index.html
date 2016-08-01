@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Atalasoft Web Capture Service</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <script src="Scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <script src="Scripts/jquery-ui-1.8.14.min.js" type="text/javascript"></script>
+    <script src="Scripts/atalaWebDocumentViewer.js" type="text/javascript"></script>
+    <script src="Scripts/atalaWebCapture.js" type="text/javascript"></script>
+
+    <link href="Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css" />
+    <link href="Scripts/atalaWebDocumentViewer.css" rel="stylesheet" type="text/css" />   
+
+    <script src="Scripts/sampleScript.js" type="text/javascript"></script>
+</head>
+<body>
+    <h1>Kofax Web Capture - Web Scan Demo</h1>
+    <table>
+        <tr>
+            <td style="vertical-align:top;">
+                <!--Web Document Viewer-->
+                <div>
+                    <div class="atala-document-toolbar" style="width: 670px; vertical-align:middle"></div>
+                    <div class="atala-document-container" style="width: 670px; height: 500px;"></div>
+                </div>
+            </td>
+            <td style="vertical-align:top;">
+                <div>
+                    Select Scanner: <select class="atala-scanner-list" disabled="disabled" id=" ScannerList" name="scannerList" style="width:194px">
+                        <option selected="selected">(no scanners available)</option>
+                    </select>
+                    <input type="button" class="button"  value="Scan" id="Scan" onClick="scanWithSettings()"/>
+                    <input type="button" class="atala-local-file-import-button cbutton" value="Import file" />
+                </div>
+                <!--Scan & VRS Settings-->
+                <div>
+                    <h2>Scan Options:</h2>
+                    <table>
+                        <tr>
+                            <td>showScannerUI:</td>
+                            <td>
+                                <select id="showScannerUI">
+                                    <option>(blank)</option>
+                                    <option>true</option>
+                                    <option selected="selected">false</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>dpi:</td>
+                            <td>
+                                <select id="dpi">
+                                    <option>100</option>
+                                    <option selected="selected">200</option>
+                                    <option>300</option>
+                                    <option>400</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>paperSize:</td>
+                            <td>
+                                <select id="paperSize">
+                                    <option>(blank)</option>
+                                    <option>-1 (No Pref)</option>
+                                    <option selected="selected">0 (None/Max)</option>
+                                    <option>1 (A4)</option>
+                                    <option>2 (B5/JISB5)</option>
+                                    <option>3 (US Letter)</option>
+                                    <option>4 (US Legal)</option>
+                                    <option>5 (A5)</option>
+                                    <option>6 (B4)</option>
+                                    <option>7 (B6)</option>
+                                    <option>9 (US Ledger)</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>pixelType:</td>
+                            <td>
+                                <select id="pixelType">
+                                    <option>(blank)</option>
+                                    <option>-1 (No Pref)</option>
+                                    <option>0 (BW)</option>
+                                    <option>1 (Grayscale)</option>
+                                    <option selected="selected">2 (Color)</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
