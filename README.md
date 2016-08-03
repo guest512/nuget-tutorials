@@ -7,6 +7,7 @@ Repository contains NuGet tutorial projects that show typical imaging / capture-
 This repository contains projects created according to NuGet tutorials published in [Atalasoft Dev Team blog](http://atalasoft.github.io/):
 
  - [NuGet Tutorial I - Web Document Viewer](http://atalasoft.github.io/2016/06/21/nuget-tutorial-wdv/)
+ - [NuGet Tutorial II - Web Capture Service](http://atalasoft.github.io/2016/08/03/nuget-tutorial-wcs/) 
 
 ## Licensing
 To run the projects locally, you need to have DotImage license. There are various way to acquire the license:
