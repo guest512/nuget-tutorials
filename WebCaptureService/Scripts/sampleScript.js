@@ -26,9 +26,8 @@ $(function () {
                 eventObj.discard = true;
                 // Use LocalFile API for upload scan result to server with specified settings
                 Atalasoft.Controls.Capture.WebScanning.LocalFile.asBase64String(eventObj.localFile,
-                    "tiff",
+                    "jpg",
                     {
-                        jpegCompression: true,
                         quality: 5
                     },
                     function (data) { Atalasoft.Controls.Capture.UploadToCaptureServer.uploadToServer(data); });
@@ -45,7 +44,7 @@ $(function () {
             },
 
             // Default scanning options used for Import operation.
-            scanningOptions: { resultPixelType: 2, deliverables: { localFile: { format: "tiff" } } }
+            scanningOptions: { resultPixelType: 2, deliverables: { localFile: { format: "tif" } } }
         });
     } catch (error) {
         console.log("Thrown error: " + error.description);
