@@ -1,4 +1,4 @@
-# nuget-tutorials
+# nuget-tutorials Test
 Repository contains NuGet tutorial projects that show typical imaging / capture-oriented applications you may create with [Atalasoft DotImage product](https://www.atalasoft.com/Products/DotImage).
 
 ![](https://atalasoft.visualstudio.com/_apis/public/build/definitions/789e0a22-6f04-4fac-91a5-ccc70df2a1f1/2/badge)
