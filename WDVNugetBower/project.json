@@ -1,0 +1,12 @@
+﻿{
+  "dependencies": {
+    "Atalasoft.dotImage.WebControls.x86": "10.7.0.2483",
+    "Microsoft.CodeDom.Providers.DotNetCompilerPlatform": "1.0.1"
+  },
+  "frameworks": {
+    "net452": {}
+  },
+  "runtimes": {
+    "win": {}
+  }
+}
