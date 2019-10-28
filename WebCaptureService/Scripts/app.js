@@ -59,12 +59,12 @@ function scanWithSettings() {
 }
 
 function collectScanSettings() {
-    var scanningOptions = { resultPixelType: 2 };
+    var scanningOptions = { resultPixelType: Atalasoft.Controls.Capture.PixelType.Color };
     var options = {
-        pixelType: 1,
-        showScannerUI: 0,
-        dpi: 1,
-        paperSize: 1
+        pixelType: Atalasoft.Controls.Capture.PixelType.Grayscale,
+        showScannerUI: false,
+        dpi: 200,
+        paperSize: Atalasoft.Controls.Capture.PaperSize.A4
     };
     var value;
     for (param in options) {
