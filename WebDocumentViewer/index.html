@@ -3,11 +3,13 @@
 <head>
     <title></title>
     <!-- Script includes for Web Viewing -->
-    <script src="Scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
-    <script src="Scripts/jquery-ui-1.8.23.min.js" type="text/javascript"></script>
+    <script src="Scripts/jquery-3.4.1.min.js" type="text/javascript"></script>
+    <script src="Scripts/jquery-ui-1.12.1.min.js" type="text/javascript"></script>
+    <script src="Scripts/raphael-min.js" type="text/javascript"></script>
     <script src="Scripts/atalaWebDocumentViewer.js" type="text/javascript"></script>
+
     <!-- Style for Web Viewer -->
-    <link href="Content/themes/base/jquery-ui.css" rel="Stylesheet" type="text/css" />
+    <link href="Content/themes/base/jquery-ui.min.css" rel="Stylesheet" type="text/css" />
     <link href="Scripts/atalaWebDocumentViewer.css" rel="Stylesheet" type="text/css" />
 
     <script type="text/javascript">
@@ -32,7 +34,8 @@
 
                 // Note that specify relative URL to our sample document on server here:
                 documenturl: 'Documents/DotImage.pdf',
-                viewer: viewer
+                viewer: viewer,
+                allowannotations: true
             });
 
         } catch (error) {
